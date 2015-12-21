@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="solrdirectory" version="2">
+	<types>
+		<fieldType name="string" class="solr.StrField"/>
+		<fieldType name="long" class="solr.TrieLongField"/>
+	</types>
+	
+	<fields>
+		<field name="fname" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+		<field name="lname" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+		<field name="phoneno" type="long" indexed="true" stored="true" required="true" multiValued="false"/>
+		<copyField source="*" dest="fulltext"/>
+		<field name="fulltext" type="string" indexed="true" stored="true" required="true" multiValued="true"/>
+	</fields>
+	
+	 <uniqueKey>phoneno</uniqueKey>
+	 <defaultSearchField>fulltext</defaultSearchField>
+	 
+</schema>
